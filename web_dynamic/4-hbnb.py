@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Starts Flask"""
+""" Starts Flak"""
 from uuid import uuid4
 from models import storage
 from models.state import State
@@ -19,9 +19,9 @@ def close_db(error):
     storage.close()
 
 
-@app.route('/2-hbnb', strict_slashes=False)
+@app.route('/4-hbnb', strict_slashes=False)
 def hbnb():
-    """ HBNB is alive! """
+    """ HBNB """
     states = storage.all(State).values()
     states = sorted(states, key=lambda k: k.name)
     st_ct = []
@@ -31,11 +31,11 @@ def hbnb():
 
     amenities = storage.all(Amenity).values()
     amenities = sorted(amenities, key=lambda k: k.name)
-   
+
     places = storage.all(Place).values()
     places = sorted(places, key=lambda k: k.name)
 
-    return render_template('2-hbnb.html',
+    return render_template('4-hbnb.html',
                            states=st_ct,
                            amenities=amenities,
                            places=places,
